@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="form-main-container">
+      <header>Add New File</header>
+      <div class="form-inner-container">
+        <div class="form-left">
+          <div class="title-div">
+            <button>English</button>
+            <button>Hindi</button>
+            <input
+              type="text"
+              name="title"
+              id="title"
+              placeholder="Enter title here"
+            />
+          </div>
+          <div class="file-input-container">
+            <label class="file-input-label" for="file-input">Add File</label>
+            <input
+              type="file"
+              id="file-input"
+              class="file-input"
+              onchange="updateFileName()"
+            />
+            <span id="file-name" class="file-name"></span>
+          </div>
+          <div class="file-container">
+            <div class="file-heading">File</div>
+            <div class="local-file-container">
+              <label for="local-file">Upload a local file</label>
+              <div>
+                (if you fill this field system will ignore next two fields)
+              </div>
+              <div><input type="file" name="local-file" id="local-file" /></div>
+            </div>
+            <div class="local-file-container">
+              <label for="remote-file">Upload a remote file</label>
+              <div>(if you fill this field system will ignore next fields)</div>
+              <div>
+                <input type="file" name="remote-file" id="remote-file" />
+              </div>
+            </div>
+            <div class="local-file-container">
+              <label for="file-link">Direct link for the file</label>
+              <div>(the file will not be uploaded on the server)</div>
+              <input type="text" name="file-link" id="file-link" />
+            </div>
+            <div class="local-file-container">
+              <label for="downloadLimit">Direct link for the file</label>
+              <div>(Set -1 for unlimited)</div>
+              <input type="number" name="downloadLimit" id="downloadLimit" />
+            </div>
+            <div class="local-file-container">
+              <label for="fileOwner">File Owner</label>
+              <select name="" id="fileOwner">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+              </select>
+            </div>
+          </div>
+          <div class="DOF-container">
+            <label for="dateOfDoc">Date of Document</label>
+            <div>this is for actual date of file</div>
+            <div><input type="date" name="dateOfDoc" id="dateOfDoc" /></div>
+          </div>
+          <div class="ISNew-container">
+            <div>
+              <input type="checkbox" id="isNew" name="isNew" value="" />
+            </div>
+            <label for="isNew" style="margin-left: 3px">Is New</label>
+            <div>(this will come in What`s New Section.)</div>
+          </div>
+        </div>
+        <div class="form-right">
+          <div class="publish-container">
+            <div>
+              <div>Publish</div>
+              <i class="fa-solid fa-caret-up"></i>
+            </div>
+            <div>
+              <div class="left-btn-container">
+                <button class="saveBtn">Save Draft</button>
+                <button class="prvBtn">Preview</button>
+              </div>
+              <ul>
+                <li>
+                  <i class="fa-solid fa-map-pin"></i> Status: Draft <a>Edit</a>
+                </li>
+                <li>
+                  <i class="fa-regular fa-eye"></i> Visibility:Public
+                  <a>Edit</a>
+                </li>
+                <li>
+                  <i class="fa-regular fa-calendar-days"></i> Publish
+                  Immediately <a>Edit</a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <button class="publish-btn">Publish</button>
+            </div>
+          </div>
+
+          <div class="multiCat-container">
+            <div>
+              <div>Multiverso Categories</div>
+              <i class="fa-solid fa-caret-up"></i>
+            </div>
+
+            <div>
+              <div class="multicat-btn-container">
+                <a href="#" id="all-categories-btn" class="active"
+                  >All Categories</a
+                >
+                <a href="#" id="most-used-btn">Most Used</a>
+              </div>
+              <div class="multi-cat-cb-container">
+                <div id="all-categories-content" class="content">
+                  <ul>
+                    <li>
+                      <input
+                        type="checkbox"
+                        id="vehicle1"
+                        name="vehicle1"
+                        value="Bike"
+                      />
+                      <label for="vehicle1"> I have a bike</label>
+                    </li>
+                    <li>
+                      <input
+                        type="checkbox"
+                        id="vehicle2"
+                        name="vehicle2"
+                        value="Car"
+                      />
+                      <label for="vehicle2"> I have a car</label>
+                      <ul>
+                        <li>
+                          <input
+                            type="checkbox"
+                            id="vehicle1"
+                            name="vehicle1"
+                            value="Bike"
+                          />
+                          <label for="vehicle1"> I have a bike</label>
+                        </li>
+                        <li>
+                          <input
+                            type="checkbox"
+                            id="vehicle2"
+                            name="vehicle2"
+                            value="Car"
+                          />
+                          <label for="vehicle2"> I have a car</label>
+                        </li>
+                        <li>
+                          <input
+                            type="checkbox"
+                            id="vehicle3"
+                            name="vehicle3"
+                            value="Boat"
+                          />
+                          <label for="vehicle3"> I have a boat</label
+                          >
+                        </li>
+                        <li>
+                          <input
+                            type="checkbox"
+                            id="vehicle3"
+                            name="vehicle3"
+                            value="Boat"
+                          />
+                          <label for="vehicle3"> I have a boat</label
+                          >
+                        </li>
+                        <li>
+                          <input
+                            type="checkbox"
+                            id="vehicle3"
+                            name="vehicle3"
+                            value="Boat"
+                          />
+                          <label for="vehicle3"> I have a boat</label
+                          >
+                        </li>
+                        <li>
+                          <input
+                            type="checkbox"
+                            id="vehicle3"
+                            name="vehicle3"
+                            value="Boat"
+                          />
+                          <label for="vehicle3"> I have a boat</label
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <input
+                        type="checkbox"
+                        id="vehicle3"
+                        name="vehicle3"
+                        value="Boat"
+                      />
+                      <label for="vehicle3"> I have a boat</label>
+                    </li>
+                  </ul>
+                </div>
+                <div id="most-used-content" class="content">
+                  Most Used Content
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <a href="#"
+                ><i class="fa-solid fa-plus"></i> Add New Categories</a
+              >
+            </div>
+          </div>
+
+          <div class="FI-container">
+            <div>
+              <div>Featured Image</div>
+              <i class="fa-solid fa-caret-up"></i>
+            </div>
+            <div style="background-color: #f1f1f1; padding: 10px">
+              <a href="#">Add New Categories</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function updateFileName() {
+        const input = document.getElementById("file-input");
+        const fileName = input.files.length > 0 ? input.files[0].name : " ";
+        document.getElementById("file-name").textContent = fileName;
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const allCategoriesBtn = document.getElementById("all-categories-btn");
+        const mostUsedBtn = document.getElementById("most-used-btn");
+        const allCategoriesContent = document.getElementById(
+          "all-categories-content"
+        );
+        const mostUsedContent = document.getElementById("most-used-content");
+
+        function setActiveTab(
+          activeBtn,
+          inactiveBtn,
+          activeContent,
+          inactiveContent
+        ) {
+          activeBtn.classList.add("active");
+          inactiveBtn.classList.remove("active");
+          activeContent.style.display = "block";
+          inactiveContent.style.display = "none";
+        }
+
+        allCategoriesBtn.addEventListener("click", function (event) {
+          event.preventDefault();
+          setActiveTab(
+            allCategoriesBtn,
+            mostUsedBtn,
+            allCategoriesContent,
+            mostUsedContent
+          );
+        });
+
+        mostUsedBtn.addEventListener("click", function (event) {
+          event.preventDefault();
+          setActiveTab(
+            mostUsedBtn,
+            allCategoriesBtn,
+            mostUsedContent,
+            allCategoriesContent
+          );
+        });
+      });
+    </script>
+  </body>
+</html>
