@@ -13,6 +13,10 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.ckeditor.com/ckeditor5/42.0.2/ckeditor5.css"
+    />
   </head>
   <body>
     <div class="form-main-container">
@@ -38,6 +42,9 @@
               onchange="updateFileName()"
             />
             <span id="file-name" class="file-name"></span>
+          </div>
+          <div class="content-txt-container">
+            <div id="editor"></div>
           </div>
           <div class="file-container">
             <div class="file-heading">File</div>
@@ -180,8 +187,7 @@
                             name="vehicle3"
                             value="Boat"
                           />
-                          <label for="vehicle3"> I have a boat</label
-                          >
+                          <label for="vehicle3"> I have a boat</label>
                         </li>
                         <li>
                           <input
@@ -190,8 +196,7 @@
                             name="vehicle3"
                             value="Boat"
                           />
-                          <label for="vehicle3"> I have a boat</label
-                          >
+                          <label for="vehicle3"> I have a boat</label>
                         </li>
                         <li>
                           <input
@@ -200,8 +205,7 @@
                             name="vehicle3"
                             value="Boat"
                           />
-                          <label for="vehicle3"> I have a boat</label
-                          >
+                          <label for="vehicle3"> I have a boat</label>
                         </li>
                         <li>
                           <input
@@ -210,8 +214,7 @@
                             name="vehicle3"
                             value="Boat"
                           />
-                          <label for="vehicle3"> I have a boat</label
-                          >
+                          <label for="vehicle3"> I have a boat</label>
                         </li>
                       </ul>
                     </li>
@@ -298,6 +301,58 @@
           );
         });
       });
+    </script>
+    <script type="importmap">
+      {
+        "imports": {
+          "ckeditor5": "https://cdn.ckeditor.com/ckeditor5/42.0.2/ckeditor5.js",
+          "ckeditor5/": "https://cdn.ckeditor.com/ckeditor5/42.0.2/"
+        }
+      }
+    </script>
+    <script type="module">
+      import {
+        ClassicEditor,
+        Essentials,
+        Paragraph,
+        Bold,
+        Italic,
+        Font,
+      } from "ckeditor5";
+
+      ClassicEditor.create(document.querySelector("#editor"), {
+        plugins: [Essentials, Paragraph, Bold, Italic, Font],
+        toolbar: [
+          "undo",
+          "redo",
+          "|",
+          "bold",
+          "italic",
+          "|",
+          "fontSize",
+          "fontFamily",
+          "fontColor",
+          "fontBackgroundColor",
+        ],
+      })
+        .catch((error) => {
+          console.error(error);
+        })
+        .then((editor) => {
+          window.editor = editor;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    </script>
+    <script>
+      window.onload = function () {
+        if (window.location.protocol === "file:") {
+          alert(
+            "This sample requires an HTTP server. Please serve this file with a web server."
+          );
+        }
+      };
     </script>
   </body>
 </html>

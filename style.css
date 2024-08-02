@@ -325,3 +325,15 @@ ul>li a:hover {
     flex-direction: column;
   }
 }
+
+.ck-powered-by{
+  display: none !important;
+}
+
+.content-txt-container{
+  margin: 1rem 0;
+}
+
+.ck-editor__editable{
+  height: 14rem;
+}
